@@ -1,0 +1,54 @@
+{% extends "hospital/layout.htm" %}
+
+{% block title %} register-patient {% endblock %}
+
+{% block body %}
+<div class="container">
+    <form action="{% url 'hospital:patient_log' %}" method="post">
+        {% csrf_token %}
+
+        <div class="card border-primary shadow col-sm-10 col-md-6 mx-auto" style="margin: 8% 0;">
+            
+            <div class="card-body">
+                <div class="h4 mt-3 font-weight-bold text-uppercase text-center border-bottom border-secondary">
+                    Patient Medical Details
+                </div>
+                <div class="form-group">
+                    <label for="">Date Admitted:</label>
+                    {{ form.check_in_date }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Period Admitted:</label>
+                    {{ form.check_in_period }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Date Discharged:</label>
+                    {{ form.check_out_date }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Period Discharged:</label>
+                    {{ form.check_out_period }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Patient:</label>
+                    {{ form.patient }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Assigned Doctor:</label>
+                    {{ form.assigned_doctor }}
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-success col-4 float-right">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

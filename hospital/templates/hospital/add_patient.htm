@@ -1,0 +1,53 @@
+{% extends "hospital/layout.htm" %}
+
+{% block title %} register-patient {% endblock %}
+
+{% block body %}
+<div class="container">
+    <form action="{% url 'hospital:add_patient' %}" method="post">
+        {% csrf_token %}
+
+        <div class="card border-primary shadow col-sm-10 col-md-6 mx-auto" style="margin: 8% 0;">
+            <div class="card-body">
+                <div class="h4 mt-3 font-weight-bold text-uppercase text-center border-bottom border-secondary">
+                    Patient Bio-Data
+                </div>
+                <div class="form-group">
+                    <label for="">First Name:</label>
+                    {{ form.first_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Last Name:</label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Gender:</label>
+                    {{ form.gender }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Contact:</label>
+                    {{ form.contact }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Residential Address:</label>
+                    {{ form.residential_address }}
+                </div>
+
+                <div class="form-group">
+                    <label for="">Date Of Birth:</label>
+                    {{ form.date_of_birth }}
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-success col-4 float-right">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
