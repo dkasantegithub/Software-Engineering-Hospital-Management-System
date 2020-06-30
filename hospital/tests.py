@@ -239,5 +239,5 @@ class ModelsTestCase(TestCase):
         """
         c2 =Client()
         response = c2.get("/patient-information/")
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
         self.assertEqual(response.context["patients"].count(), 2)
